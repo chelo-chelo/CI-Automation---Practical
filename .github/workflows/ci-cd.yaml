@@ -19,8 +19,11 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: compile Java Program
-      run: javac Main.java
+    - name: compile Java Files
+      run: javac*.java
 
-    - name: Run Java Program
+    - name: Run Main Program
       run: java Main
+
+    - name: Run Test
+      run: java CalculatorTest      
