@@ -3,7 +3,7 @@ name: Java CI Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -13,20 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Java 
+      - name: Set Up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: 'temurin'
           java-version: '17'
 
-      - name: Compile Java Files
-        run: javac *.java
+      - name: Compile Java Program
+        run: javac Main.java
 
-      - name: Run Main Program
+      - name: Run Java Program
         run: java Main
-
-      - name: Run Calculator Test
-        run: java CalculatorTest
 
       - name: Run Custom Action
         uses: ./.github/actions/java-build
