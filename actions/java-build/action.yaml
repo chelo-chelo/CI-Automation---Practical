@@ -1,20 +1,15 @@
-name: "Java Runner"
-description: "Compile and run Java program"
+name: "Build Status Action"
+description: "Returns build results"
 
-inputs:
-  file-name:
-    description: "Java file Name"
-    required: true
+outputs:
+  result:
+    description: "Build result"
 
 
 runs:
   using: "composite"
   
   steps:
-    - name: Compile Java File
-      run: javac ${{ inputs.file-name }}.java
-      shell: bash
+    - name: Set Output 
+      run: echo "result=Build Successful" >> $GITHUB_OUTPUT
 
-    - name: Run Java Program
-      run: java ${{ inputs.file-name }}
-      shell: bash
