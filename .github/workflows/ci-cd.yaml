@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up JDK 17
+      - name: Set up Java 
         uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -27,3 +27,6 @@ jobs:
 
       - name: Run Calculator Test
         run: java CalculatorTest
+
+      - name: Run Custom Action
+        uses: ./.github/actions/java-build
