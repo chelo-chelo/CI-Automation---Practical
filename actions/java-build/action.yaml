@@ -1,15 +1,21 @@
-name: "Build Status Action"
-description: "Returns build results"
+name: "Greeting Action"
+
+description: "Receives name andreturns message"
+
+inputs:
+ username:
+  required: true
+  description: "User name"
+
 
 outputs:
-  result:
-    description: "Build result"
-
+ message:
+  description: "Greeting message"
 
 runs:
-  using: "composite"
-  
-  steps:
-    - name: Set Output 
-      run: echo "result=Build Successful" >> $GITHUB_OUTPUT
+ using: "composite"
 
+ steps:
+  - name: Create Greeting
+    run: echo "message=Hello, ${{ inputs.username }}!" >> $GITHUB_OUTPUT
+    shell: bash
